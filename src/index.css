@@ -1,0 +1,353 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #070914;
+  --bg-secondary: #111126;
+  --bg-tertiary: #181938;
+  --ghost-glow: #B9F7FF;
+  --medical-accent: #FF4D67;
+  --white-main: #F5F7FA;
+  --muted-text: #9CA3AF;
+  --cyan-accent: #06B6D4;
+  --purple-accent: #8B5CF6;
+  --emerald-accent: #10B981;
+  --glass-bg: rgba(17, 17, 38, 0.72);
+  --glass-border: rgba(185, 247, 255, 0.18);
+  --glass-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.55);
+}
+
+/* Midnight Mode theme overrides */
+body.midnight-mode {
+  --bg-primary: #030408;
+  --bg-secondary: #090914;
+  --bg-tertiary: #0f0f20;
+  --ghost-glow: #70f3ff;
+  --medical-accent: #ff2a4d;
+  --glass-bg: rgba(9, 9, 20, 0.85);
+  --glass-border: rgba(255, 77, 103, 0.25);
+  background-color: #030408 !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--white-main);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Heading font */
+h1, h2, h3, .font-heading {
+  font-family: 'Cinzel', Georgia, serif;
+  letter-spacing: 0.03em;
+}
+
+/* Code & Medical HUD font */
+.font-mono, code, .hud-metric {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070914;
+}
+::-webkit-scrollbar-thumb {
+  background: #252849;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3c4070;
+}
+
+/* Bootstrap overrides for dark clinic theme */
+.bg-dark-clinic {
+  background-color: var(--bg-primary);
+}
+
+.navbar-clinic {
+  background: rgba(7, 9, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.navbar-clinic.scrolled {
+  background: rgba(7, 9, 20, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  border-bottom-color: rgba(185, 247, 255, 0.3);
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(185, 247, 255, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(185, 247, 255, 0.08);
+}
+
+.glass-panel-sm {
+  background: rgba(17, 17, 38, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(185, 247, 255, 0.12);
+  border-radius: 12px;
+}
+
+/* Medical Cross Motif */
+.medical-cross-glow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.medical-cross-glow::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: radial-gradient(circle, rgba(255, 77, 103, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: pulseCross 3s infinite alternate ease-in-out;
+}
+
+@keyframes pulseCross {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 0.9; }
+}
+
+/* Ghost Glow Utilities */
+.text-ghost {
+  color: var(--ghost-glow);
+  text-shadow: 0 0 12px rgba(185, 247, 255, 0.45);
+}
+
+.text-medical {
+  color: var(--medical-accent);
+  text-shadow: 0 0 12px rgba(255, 77, 103, 0.4);
+}
+
+.glow-btn-primary {
+  background: linear-gradient(135deg, #FF4D67 0%, #D81E43 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 120, 140, 0.5);
+  box-shadow: 0 4px 20px rgba(255, 77, 103, 0.35);
+  font-weight: 600;
+  transition: all 0.25s ease;
+  border-radius: 10px;
+}
+
+.glow-btn-primary:hover {
+  background: linear-gradient(135deg, #FF667D 0%, #E62A4E 100%);
+  box-shadow: 0 6px 28px rgba(255, 77, 103, 0.6);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.glow-btn-ghost {
+  background: rgba(185, 247, 255, 0.08);
+  color: var(--ghost-glow);
+  border: 1px solid rgba(185, 247, 255, 0.3);
+  box-shadow: 0 4px 18px rgba(185, 247, 255, 0.15);
+  font-weight: 600;
+  transition: all 0.25s ease;
+  border-radius: 10px;
+}
+
+.glow-btn-ghost:hover {
+  background: rgba(185, 247, 255, 0.18);
+  border-color: rgba(185, 247, 255, 0.6);
+  box-shadow: 0 6px 25px rgba(185, 247, 255, 0.35);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+/* ECG Line Animations */
+.ecg-line-svg {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawEcg 3.5s linear infinite;
+}
+
+@keyframes drawEcg {
+  0% { stroke-dashoffset: 1000; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.pulse-circle {
+  animation: pulseDot 1.6s infinite ease-out;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.3; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Floating Ghost Animation */
+.float-ghost {
+  animation: floatingGhost 4.5s ease-in-out infinite;
+}
+
+@keyframes floatingGhost {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(2deg);
+  }
+}
+
+/* Scanner Beam Effect */
+.scanner-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanner-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #B9F7FF, #06B6D4, #B9F7FF, transparent);
+  box-shadow: 0 0 20px #B9F7FF, 0 0 35px #06B6D4;
+  animation: scanMove 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes scanMove {
+  0% { top: 0%; opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { top: 96%; opacity: 0.3; }
+}
+
+/* Glitch Effect for Secrets & Patient #013 */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  color: #FF4D67;
+  animation: glitchAnim 2.8s infinite;
+}
+
+@keyframes glitchAnim {
+  0%, 92%, 100% {
+    transform: none;
+    opacity: 1;
+  }
+  93% {
+    transform: skew(-2deg) translate(-2px, 1px);
+    text-shadow: 2px 0 #06B6D4, -2px 0 #FF4D67;
+  }
+  94% {
+    transform: skew(3deg) translate(2px, -1px);
+    text-shadow: -2px 0 #06B6D4, 2px 0 #FF4D67;
+  }
+  95% {
+    transform: none;
+    text-shadow: none;
+  }
+  97% {
+    transform: skew(1deg) translate(-1px, 2px);
+    text-shadow: 1px 0 #8B5CF6, -1px 0 #FF4D67;
+  }
+}
+
+.glitch-flash {
+  animation: flashGlitch 0.4s ease-in-out;
+}
+
+@keyframes flashGlitch {
+  0% { filter: invert(0) contrast(1); }
+  30% { filter: invert(0.8) hue-rotate(180deg) contrast(2); }
+  60% { filter: invert(0.3) contrast(1.5); }
+  100% { filter: invert(0) contrast(1); }
+}
+
+/* Radial Fog Overlay */
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 30%, rgba(185, 247, 255, 0.05) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+  mix-blend-mode: screen;
+}
+
+/* Subtle Medical Grid Lines */
+.medical-grid-bg {
+  background-image: 
+    linear-gradient(rgba(185, 247, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 247, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Ghost Follower Entity */
+.ghost-follower-cursor {
+  position: fixed;
+  pointer-events: auto;
+  z-index: 999;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  filter: drop-shadow(0 0 14px rgba(185, 247, 255, 0.6));
+}
+
+/* Chat Drawer */
+.chat-drawer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1050;
+  max-width: 420px;
+  width: calc(100vw - 32px);
+}
+
+@media (max-width: 576px) {
+  .chat-drawer {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* Offcanvas custom background */
+.offcanvas {
+  background: #090918 !important;
+  color: #F5F7FA !important;
+  border-left: 1px solid var(--glass-border) !important;
+}
+
+/* Print Friendly Prescription */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .navbar-clinic, .chat-drawer, .no-print, button, .ghost-follower-cursor {
+    display: none !important;
+  }
+  .printable-prescription {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    border: 2px solid #000000 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .text-ghost, .text-medical {
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+}

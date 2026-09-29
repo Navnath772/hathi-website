@@ -1,0 +1,8 @@
+{
+  "name": "Hathi Afterdark",
+  "description": "Supernatural Healthcare for the Afterlife — 24/7 AI-powered ghost clinic featuring Dr. Hansraj Hathi, spirit diagnostics, multimodal vision, voice AI, and paranormal secrets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
